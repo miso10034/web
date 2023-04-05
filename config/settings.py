@@ -20,14 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2!@p561vcq%xn42h6ud$#ji3oxk5fy^!tgc(&8m19h39gj6$k2'
+SECRET_KEY = 'django-insecure--u$-d@zz!#i4xt-(5wacyifzz3&)(r86ynb67zu+r9d4c!^ir5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '10.10.21.64', 'naver.com']
-### 추가 부분 : 아이피 또는 도메인 추가
+### 추가부분 : 아이피 또는 도메인 추가
 ALLOWED_HOSTS = ['127.0.0.1']
+
 
 # Application definition
 
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'firstapp',
     'secondapp',
     'mainapp',
+    'frontapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,12 +56,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-
-### HTML 파일이 위치할 곳 지정하기(front-end)
+### HTML 파일이 위치할곳 지정하기(front-end)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'], ### 장고에서 지정하는 이름
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-### 정적파일 관리(css,javascript, 이미지 등)
+### 정적파일 관리(css, javascript, 이미지 등)
 STATIC_URL = 'static/'
 ### 추가
 STATICFILES_DIRS = [BASE_DIR / 'static']

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: HTML - Table 처리 페이지 :::</title>
+    <style>
+        table {
+            /* 테이블의 테두리 라인 설정 */
+            border:1px solid black;
+
+            /* 두줄 라인을 한줄로 설정 */
+            border-collapse: collapse;
+        }
+        th, td {
+            /* 안쪽 여백 주기*/
+            padding: 15px;
+
+            /* 가운데 정렬하기 */
+            text-align: center;
+        }
+        th {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+{{ c_list }}
+    <h3>HTML - Table 처리</h3>
+    <hr/>
+    <table border="1">
+        <tr>
+            <th width="100">아이디</th>
+            <th width="100">이 름</th>
+            <th>주 소</th>
+        </tr>
+        <!--값을 뽑아내는 방식, 행단위로 묶어서 반복문을 돌려줘야함-->
+        {% for d in c_list %}
+        <tr>
+            <td>{{ d.id }}</td>
+            <td>{{ d.name }}</td>
+            <td>{{ d.addr }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
