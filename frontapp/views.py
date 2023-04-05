@@ -109,3 +109,21 @@ def cssTableView(request):
     return render(request,
                   "frontapp/css/01_cssTable.html",
                   {})
+
+def cssTableView2(request) :
+    context = {"id" : "a001",
+               "name" : "홍길동1",
+               "addr" : "광주 소촌동 1-1"}
+    context2 = {"id" : "a002",
+               "name" : "홍길동2",
+               "addr" : "광주 소촌동 1-2"}
+    context3 = {"id" : "a003",
+               "name" : "홍길동3",
+               "addr" : "광주 소촌동 1-3"}
+    context4 = {"id" : "a004",
+               "name" : "홍길동4",
+               "addr" : "광주 소촌동 1-4"}
+    co_list = [context,context2,context3,context4]
+    return render(request,
+                  "frontapp/css/02_cssTable.html",
+                  {"co_list" : co_list})

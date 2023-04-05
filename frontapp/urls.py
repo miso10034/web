@@ -64,4 +64,6 @@ urlpatterns = [
     ### http://127.0.0.1:8000/front/01_cssTable/
     path('01_cssTable/', views.cssTableView),
 
+    ### http://127.0.0.1:8000/front/02_cssTable/
+    path('02_cssTable/', views.cssTableView2),
 ]
