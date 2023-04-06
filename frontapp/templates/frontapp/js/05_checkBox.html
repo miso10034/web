@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>:::  05_checkBox :::</title>
+    <script type="text/javascript">
+        // 라디오버튼 태그만 초기화
+        function checkboxReload(){
+            fm = document.getElementById("fm");
+                    
+            
+            for(i=0; i<fm.city.length; i++){
+                if(fm.city[i].checked == true){
+                    fm.city[i].checked = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>05_checkBox</h3>
+    <hr/>
+    <form id="fm" name="fm" method="post" action="/front/">
+        {% csrf_token %}
+        <!-- 체크박스
+            - 하나의 항목에 대해서 여러개 체크된 값을 저장
+            -  name은 동일하게 처리
+            - value 값은 여러개 선택하여 지정가능 
+            - 선택된 값 여러개가 name 이름으로 전송됨 
+            - 현재 보이는 형태 city = ["서울", "경기", "광주", "부산"] -->
+        지역 선택 :
+        <input type="checkbox" name="city" value="서울">서울
+        <input type="checkbox" name="city" value="경기">경기
+        <input type="checkbox" name="city" value="광주">광주
+        <input type="checkbox" name="city" value="부산">부산
+        <hr/>
+        <input type="button" value="체크박스만 초기화"
+                onclick="checkboxReload()">
+
+</form>
+</body>
+</html>

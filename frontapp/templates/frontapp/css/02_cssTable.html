@@ -4,6 +4,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>::: 테이블 행단위 색 입히기 :::</title>
+    <style>
+        table {
+            /*  한줄 선그리기 */
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        /* tr태그 특정행 스타일을 지정하는 방식 */
+        tr:nth-child(even) {
+            background-color: fuchsia;
+        }
+    </style>
 </head>
 <body>
 {{ co_list }}

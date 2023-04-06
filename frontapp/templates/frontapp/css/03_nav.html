@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 수직 네비게이션 만들기 :::</title>
+    <style>
+        ul {
+            list-style-type:none;
+            background-color: lightpink;
+            width : 200px;
+            padding: 0%;
+            margin:0%;
+        }
+        li {
+            /* li태그 블럭(사각)의 하단에만 선그리기*/
+            text-align: center;
+            border-bottom: 1px solid gray;
+        }
+        /* li 태그 중에 마지막 li태그 지정*/
+        li:last-child{
+            border-bottom: none;
+        }
+        li a {
+            color: black;
+            padding: 0%;
+            /* 언더라인 없애기 */
+            text-decoration: none;
+            /* a태그는 열단위 영역 -> 블록 영역으로 변환하기 */
+            display: block;
+        }
+        li a:hover {
+            background-color : hotpink;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <h3>수직 네비게이션 만들기</h3>
+    <hr/>
+    <ul>
+        <li><a href="/front/">front/index바로가기</a></li>
+        <li><a href="/main/main/">main/index바로가기</a></li>
+        <li><a href="/first/">first/index바로가기</a></li>
+        <li><a href="/">Home 바로가기</a></li>
+    </ul>
+    </table>
+</body>
+</html>
