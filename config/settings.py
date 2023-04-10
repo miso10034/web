@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'secondapp',
     'mainapp',
     'frontapp',
+    'oracleapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,8 +84,47 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+
+    },
+
+    ### 오라클 데이터베이스 설정 추가
+    'oracle': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'xe',# sqldeveloper에서 SID
+        'USER' : 'gwangju_a',
+        'PASSWORD' : 'dbdb',
+        'HOST' : 'localhost',
+        'PORT' : '1521',
+    },
+}
+
+### 오라클 또는 Mysql 데이터베이스 등 외부 데이터베이스가 추가되는 경우
+### - 추가된 DB를 사용할 app 지정
+DATABASE_ROUTER = [
+    'oracleapp.router.DBRouter', 
+    # -> 경로 oracleapp이라는 파일 안에 router.py에서 DBRouter라는 클래스를 사용해 정의하겠다
+    # 새로운 app 생성
+]
+
+### Logging 처리
+# - DB 실행 내용을 console 창에서 확인할 수 있도록 처리
+LOGGING = {
+    'version':1,
+    'disable_existing_loggers':False,
+    'handlers':{
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        }
+    },
+    'loggers':{
+        'django.db.backends':{
+            'handlers': ['console'],
+            'level':'DEBUG',
+        }
     }
 }
+
 
 
 # Password validation

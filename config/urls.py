@@ -56,6 +56,9 @@ urlpatterns = [
 
     ### http://127.0.0.1:8000/front/
     path('front/', include('frontapp.urls')),
+
+    ### http://127.0.0.1:8000/oracle/
+    path('oracle/', include('oracleapp.urls')),
           
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 ]
