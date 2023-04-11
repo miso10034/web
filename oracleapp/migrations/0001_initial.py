@@ -12,11 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Member', # 클래스 테이블
+            name='Member',
             fields=[
                 ('mem_id', models.CharField(max_length=15, primary_key=True, serialize=False)),
                 ('mem_pass', models.CharField(max_length=15)),
-                ('name', models.CharField(max_length=20)),
+                ('mem_name', models.CharField(max_length=20)),
                 ('mem_add1', models.CharField(max_length=100)),
             ],
             options={

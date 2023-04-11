@@ -1,0 +1,24 @@
+-------------------------------
+- secondapp에서
+- member 테이블 모델에 생성
+- views 함수명 : getMemberAll()
+- /member/mem_all.html 생성
+- url 패턴 : mem_all
+
+
+------------oracleapp에서..-----------
+* 회원리스트에서 
+ - 이름을 클릭하면,
+   -- 자바스크립트 goView() 함수 호출되게
+   -- alert()를 이용해서 "함수호출" 메시지 나오게 처리
+
+ - mem_view.html 페이지로 이동
+ - getMemberView() 함수 사용
+ - 클릭했을 때의 회원 정보를 getMemberView()함수에 넘겨야함
+ - 패턴 : mem_view
+
+
+
+
+
+

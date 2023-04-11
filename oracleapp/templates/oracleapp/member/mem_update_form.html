@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 회원관리 - 수정 폼(form) :::</title>
+    <script type="text/javascript">
+ 
+    </script>
+</head>
+<body>
+    <h3>회원관리 - 수정 폼(form)</h3>
+    <hr/>
+    <table border="1">
+        <tr>
+            <th>아이디</th>
+            <th>패스워드</th>
+            <th>이름</th>
+            <th>주소1</th>
+        </tr>
+        <tr>
+            <td>{{ mem_view.mem_id }}</td>
+            <td>
+                <input type="password" name="mem_pass"
+                    value="{{ mem_view.mem_pass }}" size="10"> 
+                  <!--값이 들어가 있어야해서 value를 사용-->
+            </td> <!--input으로 수정할 수 있는 부분 만들어주기-->
+            <td>{{ mem_view.mem_name }}</td>
+            <td>
+                <input type="text" name="mem_add1"
+                    value="{{ mem_view.mem_add1 }}" size="20">
+        </tr>
+    </table>
+    <hr/>
+</body>
+</html>

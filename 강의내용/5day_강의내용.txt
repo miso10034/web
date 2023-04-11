@@ -1,0 +1,80 @@
+---------------------------
+1. html 파일 : js/05_checkBox.html 
+2. 함수이름 : checkBoxView()
+3. url 패턴 : 05_checkBox
+
+ - 여러개 체크한 후 체크박스 초기화 시키기..
+   -- 전체 초기화는 아님...city 체크박스에 대해서만...
+
+ ** 한개의 name에 여러개의 값을 전송할 때..
+  - SQL 구문을 완성하기 위해 편한 방법으로 전송하려면,,
+  - Select * 
+    From testTB
+    Where city In (변수)
+
+    Select * 
+    From testTB
+    Where city = '변수1'
+          Or city = '변수2'
+
+
+ * 검색 버튼(체크된 value의 값들을 "서울, 광주, .." 형태로 정의)
+  - 함수이름 goSelect()
+  - 체크된 값들을 변수에 담아서 alert()으로 보여주기
+  - 2개가 선택되었다면 
+     => "서울,광주" 형태로, 띄어쓰기 없음, 마지막 콤마 없음
+
+
+---------------------------
+1. html 파일 : js/06_selectBox.html 
+2. 함수이름 : selectBoxView()
+3. url 패턴 : 06_selectBox
+
+---------------------------
+1. html 파일 : js/07_input_required.html 
+2. 함수이름 : requiredView()
+3. url 패턴 : 07_required
+
+
+---------------------------
+1. html 파일 : js/08_input_required.html 
+2. 함수이름 : requiredView2()
+3. url 패턴 : 08_required
+
+
+===========jQuery===========
+Download url :   http://jquery.com
+
+------------ jquery 폴더에서 진행 ------
+1. html 파일 : jquery/01_jquery.html 
+2. 함수이름 : jqueryView1()
+3. url 패턴 : 01_jquery
+
+-----------------------------
+1. html 파일 : jquery/ 02_slidejquery.html 
+2. 함수이름 : slideJqueryView2()
+3. url 패턴 : 02_slideJquery
+
+<스타일 지정하기>
+ - id가 div1과 div1_contents에 대해서
+   공통적으로 적용
+   * 내부여백 : 5
+   * 텍스트 정렬 : 중앙정렬
+   * 배경색 : 노랑색
+   * 선그리기 : 굵기 1, 실선, 파랑색
+
+ - div1_contents에만 적용
+   * 내부여백 : 50
+   * 숨기기 display : none
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,55 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>:::checkbox:::</title>
+    <title>::: 05_checkBox :::</title>
     <script type="text/javascript">
-        // 라디오 버튼 태그 초기화
+        // 라디오버튼 태그만 초기화
         function checkboxReload(){
-            fm = document.getElementById("fm")
-            for(i=0; i < fm.city.length; i++){
-                if (fm.city[i].checked == true){
+            fm = document.getElementById("fm");
+            for(i=0; i<fm.city.length; i++){
+                if(fm.city[i].checked == true){
                     fm.city[i].checked = false;
                 }
             }
         }
+
         function goSelect(){
-            fm = document.getElementById("fm")
+            fm = document.getElementById("fm");
+
             str_all = "";
-            for(i=0; i < fm.city.length; i++){
-                if (fm.city[i].checked == true){
+            for(i=0; i<fm.city.length; i++){
+                if(fm.city[i].checked == true){
                     str_all += fm.city[i].value + ",";
                 }
             }
-            // slice(시작 값, 끝 값): 문자열 자르기 함수/ 끝 값의 -1은 마지막 바로 앞의 값
+            
+            // slice(시작값, 끝값) : 문자열 자르기 함수
             str_all = str_all.slice(0, -1);
             alert(str_all);
         }
-        // 페이지 로딩 시 사용자 데이터를 이용해서 체크박스 세팅하기
-        function initcheck(area){
+        // 페이지 로딩 시 사용자 데이터를 이용해서 체크박스 셋팅하기
+        function initCheck(area){
             fm = document.getElementById("fm");
-            for(i=0; i < fm.city.length; i++){
-                if (fm.city[i].value == area){
+            for(i=0; i<fm.city.length; i++){
+                if(fm.city[i].value == area){
                     fm.city[i].checked = true;
                 }
             }
         }
+
         // split 테스트 함수
         function getSplit(){
             msg = "서울,광주";
             split_msg = msg.split(',');
-            for(i=0; i<split_msg.length; i++){
-                alert(split_msg[i])
+            for(i=0; i < split_msg.length; i++){
+                alert(split_msg[i]);
             }
-            // alert(msg.split(','));
+            //alert(msg.split(','));
         }
-        function initMulticheck(areas){
-            // ['서울', '원주']
-            areas_list = areas.split(',');
+
+        // 페이지 로딩 시 사용자 데이터를 이용해서 멀티 체크박스 셋팅하기
+        function initMultiCheck(areas){
+            // [광주,부산]
+            area_list = areas.split(',');
 
             fm = document.getElementById("fm");
-            for(i=0; i < fm.city.length; i++){
-                for(j=0; j < areas_list.length; j++){
-                    if(fm.city[i].value == areas_list[j]){
+            for(i=0; i<fm.city.length; i++){
+                for(j=0; j<area_list.length; j++){
+                    if(fm.city[i].value == area_list[j]){
                         fm.city[i].checked = true;
                         break;
                     }
@@ -61,42 +67,36 @@
         }
     </script>
 </head>
-<!-- 페이지가 로딩 시 멀티 체크된 항목들 세팅하기
-    - 자바스크립트 함수 이름: initMulticheck()
-    - 값은 광주, 부산
-    - 값은 view.py에서 넣어주기
-    initcheck('{{area}}'); 
- -->
-
-<body onload="initMulticheck('{{areas}}');">
-
-    <h3>05_checkbox</h3>
+<!-- 페이지가 로딩시에 멀티 체크된 항목들 셋팅하기
+     - 자바스크립트 함수 이름 : initMultiCheck()
+     - 값은 광주, 부산
+     - 값은 views.py에서 넣어주기
+     initCheck('{{ area }}'); 
+-->
+<body onload="initMultiCheck('{{ areas }}');">
+    <h3>05_checkBox</h3>
     <hr/>
 <form id="fm" name="fm" method="post" action="#">
-    {%csrf_token%}
-    <!-- 체크 박스
-    - 하나의 항목에 대해서 여러 개 체크된 값을 저장
-    - name은 동일하게 처리
-    - value 값은 여러 개 선택하여 지정 가능
-    - 선택된 값 여러 개가 name 이름으로 전송됨 
-    - 현재 보이는 형태 city = ["서울", "광주", "원주", "제주"] -->
-    지역 선택:
-    <br/>
-    <br/>
+    {% csrf_token %}
+    <!-- 체크박스
+        - 하나의 항목에 대해서 여러개 체크된 값을 저장
+        - name은 동일하게 처리
+        - value 값은 여러개 선택하여 지정가능
+        - 선택된 값 여러개가 name 이름으로 전송됨
+        - 현재 보이는 형태 city = ["서울", "경기", "광주", "부산"] -->
+    지역 선택 : 
     <input type="checkbox" name="city" value="서울">서울
-    <br/>
+    <input type="checkbox" name="city" value="경기">경기
     <input type="checkbox" name="city" value="광주">광주
-    <br/>
-    <input type="checkbox" name="city" value="원주">원주
-    <br/>
-    <input type="checkbox" name="city" value="제주">제주
-    <hr>
-    <input type="button" value="체크 박스 초기화 하기" onclick="checkboxReload()">
+    <input type="checkbox" name="city" value="부산">부산
+    <hr/>
+    <input type="button" value="체크박스 초기화"
+            onclick="checkboxReload()">
 
-    <!--검색(체크된 value의 값들을 '서울','광주' 형태로 정의) -->
-    <!-- 함수 이름 goSelect() -->
+    <!-- 검색 버튼(체크된 value의 값들을 "서울, 광주, .." 형태로 정의) -->
+    <!-- 함수이름 goSelect() -->
     <!-- 체크된 값들을 변수에 담아서 alert()으로 보여주기 -->
-    <!-- 2개가 선택되었다면 => '서울', '광주' 형태로, 띄어쓰기 없음, 마지막 콤마 없음 -->
+    <!-- 2개가 선택되었다면 => "서울,광주" 형태로, 띄어쓰기 없음, 마지막 콤마 없음 -->
     <button onclick="goSelect()">검색하기</button>
 
     <!-- split 테스트 -->
@@ -104,7 +104,3 @@
 </form>
 </body>
 </html>
-
-
-    <!-- type="button": 직접 전송 처리를 해야 함 -->
-    <!-- type="submit": form 태그에 정의된 처리 방식으로 자동 전송됨 -->

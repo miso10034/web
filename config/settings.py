@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--f2vjx$jc!ne=^=#owb&)o@&$fhby#&)_)wo2-e=q1h&um81pr'
+SECRET_KEY = 'django-insecure--u$-d@zz!#i4xt-(5wacyifzz3&)(r86ynb67zu+r9d4c!^ir5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-### 추가 부분: 아이피 또는 도메인 추가
+### 추가부분 : 아이피 또는 도메인 추가
 ALLOWED_HOSTS = ['127.0.0.1']
 
 
@@ -57,7 +57,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-### HTML 파일이 위치할 곳 지정하기(front-end)
+### HTML 파일이 위치할곳 지정하기(front-end)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -84,13 +84,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-
     },
 
     ### 오라클 데이터베이스 설정 추가
     'oracle': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'xe',# sqldeveloper에서 SID
+        'ENGINE' : 'django.db.backends.oracle',
+        'NAME' : 'xe',
         'USER' : 'gwangju_a',
         'PASSWORD' : 'dbdb',
         'HOST' : 'localhost',
@@ -100,10 +99,8 @@ DATABASES = {
 
 ### 오라클 또는 Mysql 데이터베이스 등 외부 데이터베이스가 추가되는 경우
 ### - 추가된 DB를 사용할 app 지정
-DATABASE_ROUTER = [
-    'oracleapp.router.DBRouter', 
-    # -> 경로 oracleapp이라는 파일 안에 router.py에서 DBRouter라는 클래스를 사용해 정의하겠다
-    # 새로운 app 생성
+DATABASE_ROUTERS = [
+    'oracleapp.router.DBRouter',
 ]
 
 ### Logging 처리
@@ -119,12 +116,11 @@ LOGGING = {
     },
     'loggers':{
         'django.db.backends':{
-            'handlers': ['console'],
+            'handlers':['console'],
             'level':'DEBUG',
         }
     }
 }
-
 
 
 # Password validation
@@ -153,7 +149,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'ko-kr'
 
-### 서울로 시간대 변경
+### 시간대 변경
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Seoul'
 
@@ -165,9 +161,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-### 정적 파일 관리(css, javascript, 이미지 등)
+### 정적파일 관리(css, javascript, 이미지 등)
 STATIC_URL = 'static/'
-### 추가 []:웹에서 사용되는 경로 설정
+### 추가
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type

@@ -1,0 +1,154 @@
+<아나콘다 환경 -> 가상환경 생성하기>
+* 가상환경 목록 확인
+ >conda env list
+
+* install 라이브러리 확인
+ > conda list
+ > pip list
+ 
+ --> <아래는 폴더의 위치 무관>
+* 가상환경 생성하기
+  - conda create -n 가상환경이름 python=버전
+ > conda create -n gj_django python=3.9
+
+* 가상환경 삭제하기
+ - conda env remove -n 가상환경이름
+ > conda env remove -n gj_django
+
+* 가상환경 활성화(들어가기)
+ > conda activate gj_django
+
+* 주피터 노트북 설치하기
+ > pip install jupyter notebook
+
+* 주피터 노트북 실행하기
+ - 실행 시 폴더 위치 지정
+ > cd /
+ > cd gj_202304
+ > jupyter notebook
+
+* 가상환경 커널 생성(연결)하기
+ > python -m ipykernel install --user --name gj_django --display-name gj_django_kernel
+
+* 커널 목록 확인하기
+ > jupyter kernelspec list
+
+* 커널 삭제하기
+ >jupyter kernelspec uninstall gj_django
+
+<기본적으로 설치해 두면 편한 라이브러리 설치>
+ > pip install ipython jupyter matplotlib pandas xlrd seaborn scikit-learn
+  
+  > pip install openpyxl
+
+<웹서버 django 설치하기>
+ > conda install -c conda-forge django==4.0.1
+
+<오라클 라이브러리  설치하기>
+ > pip install cx_oracle
+
+
+<설치 명령>
+pip install 라이브러리=버전
+conda install 라이브러리==버전
+conda install -c conda-forge 라이브러리==버전
+ ==> 버전은 지정 안해도 됨...
+ ==> 가급적 버전을 지정하면 좋은 라이브러리
+    : django, tensorflow
+
+----------------------------------
+<아래부터는 디렉토리 위치 지정>
+* 장고 웹서버 구축(프로젝트 생성)
+ >django-admin startproject config .
+
+* 웹서버 구동(시작)하기
+ > python manage.py runserver
+
+* 웹서버 종료하기
+ - Ctrl + C
+
+* VS-Code 열기
+ 작업디렉토리> code .
+
+* 환경설정 : config/settings.py 
+ - ALLOWED_HOSTS = ['127.0.0.1', 
+                               'localhost', 
+                               '10.10.21.63',
+                               'naver.com']
+ 
+<장고 프로그램 app 생성하기>
+ - django-admin startapp xxxapp이름
+>django-admin startapp firstapp
+
+
+< xxx app 폴더 생성 이후 필수>
+ - settings.py 파일에서
+ - INSTALLED_APPS = [firstapp,] 안에 app이름을 추가해야함
+
+### from 뒤에 작성규칙
+#  - 폴더 경로 또는 폴더 경로 + 파일명
+
+### import 뒤에 작성규칙
+#  * from에서 폴더경로까지만 지정한 경우
+#     - 파일명
+#  * from에서 파일명까지 지정한 경우
+#     - 클리스명 또는 함수명
+
+from firstapp import views
+
+### http://127.0.0.1:8000/url경로/
+### path('url경로', 함수이름),
+urlpatterns = [
+    ### http://127.0.0.1:8000/testpage/
+    path('testpage/', views.testPage),
+
+    path('admin/', admin.site.urls),
+]
+
+<Zoom 접속 링크>
+https://zrr.kr/QBIp
+
+<구글드라이브 URL>
+ - 매일 강의 내용 참고
+https://me2.kr/EhGFd
+
+<실습>
+- 작업폴더 c:\test 폴더 생성
+- 가상환경 이름 : test_django 생성
+  > 커널 연결
+  > 가상환경 활성화 후 기본 라이브러리 및 
+     장고까지 모두 설치
+- 프로젝트 config 생성
+- secondapp 생성하기
+- url : http:127.0.0.1:8000/second 를 브라우저에서 입력
+- second.html 생성
+  내용 : 이곳은 second 페이지 입니다. 보여주기...
+
+<실습>
+- secondapp에서 아래 처리하기
+- config/urls.py에서는 secondapp으로 넘겨서 url관리
+- http://127.0.0.1:8000/second/index
+- index.html 페이지 생성
+  내용 : "second index 페이지 입니다." 보여주기
+
+<코드 작성 순서 정리>
+1. views.py 함수 생성
+ - html 파일 지정
+
+2. templates > xxxapp
+ - html 생성
+
+3. xxxapp / urls.py
+ - path(url 패턴 이름 지정, 함수 호출)
+
+
+
+
+
+
+
+
+
+
+
+
