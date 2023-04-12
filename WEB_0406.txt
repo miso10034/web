@@ -1,0 +1,84 @@
+_________CSS__________
+1. html 파일 :css/02_table.html
+2. 함수이름 : cssTableView2()
+3. url 패턴 : 02_cssTable
+
+tr:nth-child(even) {
+	background-color: fuchsia;
+}
+nth-child(even):/* tr태그 특정행 스타일을 지정하는 방식 */
+
+______________________
+1. html 파일 :css/03_nav.html
+2. 함수이름 : cssNavView2()
+3. url 패턴 : 03_cssNav
+
+- 표식 기호를 이용해서
+-- 4개의 a 태그 생성하기
+
+- ul 태그 스타일 적용하기
+-- 표식기호 없애기
+-- 배경색 : 노랑색 background-color: yellowgreen;
+-- 내부여백 : 0 -> padding: 0%;
+-- 외부여백 : 0 -> margin:0%;
+-- 너비 : 200 -> width: 200px;
+
+- li a 태그 스타일 적용하기
+-- 텍스트색 : 검정 -> color: black;
+-- 내부여백 : 0 -> padding: 0%;
+-- 언더라인 없애기 -> text-decoration: none;
+
+- a 태그에 마우스 올려놓으면
+-- 배경색은 아쿠아색
+-- 텍스트색은 파랑색
+
+- li 태그에 선그리기
+-- 실선으로 1px 굵기, 선의 색은 자유롭게
+-- 텍스트는 중앙정렬
+
+
+__________[자바스크립트]___________
+1. html 파일 :js/01_inputForm.html
+2. 함수이름 :jsInputFormView()
+3. url 패턴 : 01_jsInputForm
+
+타입이 submit인 형태는 자동으로 제출이되서 
+
+삭제 -> 행단위로 삭제된다
+수정 -> 컬럼단위로 수정
+name -> 테이블의 컬럼명으로 들어감
+컬럼명 변수명, 입력에 들어가는 name은 동일
+
+get 방식 url 주소 뒤에 ?가 붙는다
+name과 value가 들어가고 여러개라면 ,로 여러개 보여주기 가능 
+
+- type이 button인 태그에 대해서는 00
+-- 자바스크립트 함수 goLogin() 함수를 생성해서
+    "함수가 잘 호출 됩니다" 메시지 창 보여주기
+
+____________________________
+1. html 파일 : 없음
+2. 함수이름 :jsLogin()
+ - HttpResponse()를 이용해서 "로그인 페이지" 출력
+3. url 패턴 : 02_login
+
+____________________________
+1. html 파일 :js/03_radioButton.html
+2. 함수이름 :radioButtonView()
+3. url 패턴 : 03_radioButton
+
+____________________________
+1. html 파일 : 없음
+2. 함수이름 :jsRadio()
+ - p_cipy 변수에 전송된 값을 받아서 
+ - HttpResponse()를 이용해서 p_cipy값 출력하기
+3. url 패턴 : 04_radio
+
+____________________________
+1. html 파일 :js/05_checkBox.html
+2. 함수이름 :checkBoxView()
+3. url 패턴 : 05_checkBox
+
+- 여러개 체크한 후 체크박스 초기화 시키기..
+ -- 전체 초기화는 아님...city 체크박스에 대해서만
+

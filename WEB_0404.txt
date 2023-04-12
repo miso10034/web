@@ -1,0 +1,71 @@
+_________________________________________
+
+** mainapp에서 
+- url : http://127.0.0.1:8000/main/main 패턴으로 요청이 들어오면
+- views에 함수 main()생성
+- html은 main.html 생성
+   --> 내용은 mainapp의 main 페이지 입니다." 보여지게 처리
+
+** SecondApp [바로가기],MainApp [바로가기]추가하기
+  - 각 app의 html에서 [인덱스로 가기]추가
+ 
+[앱생성하기]
+1. 앱이름 frontapp 생성
+2. http://127.0.0.1:8000/front/로 요청이 들어오면
+>> views 함수 이름 : index()
+3. frontapp의 index.html 페이지를 생성해서
+  --> "front 페이지 입니다." 보여지게 처리
+4. 그리고, 최초 인덱스 페이지에 frontapp [바로가기] 추가
+           frontapp index 페이지에는 [인덱스로 가기] 추가
+
+________________________________________
+_________[frontapp에서 진행]___________
+* http://127.0.0.1:8000/front/image
+* views 함수 이름 : imageView()
+* 패턴 : image/
+* html : 01_image.html
+--- "이미지 테스트"출력 되도록
+
+[frontapp의 index.html]에서 
+- 01_Image테스트 [바로가기] 링크 생성하기
+
+[frontapp의 01_image.html]에서
+- frontapp의 index.html 페이지로 가는 링크 생성하기
+- FrontApp 인덱스 : [바로가기]
+
+
+* http://127.0.0.1:8000/front/css_1
+* views 함수 이름 : cssView()
+* 패턴 : css_1/
+* html : 02_css1.html
+--- "css 테스트"출력 되도록
+
+* http://127.0.0.1:8000/front/css_2
+* views 함수 이름 : cssView2()
+* 패턴 : css_2/
+* html : 02_css2.html
+--- 02_css1.html 복사 사용
+
+* http://127.0.0.1:8000/front/css_3
+* views 함수 이름 : cssView3()
+* 패턴 : css_3/
+* html : 02_css3.html
+--- 02_css2.html 복사 사용
+
+<secondapp 에서 진행>
+* http://127.0.0.1:8000/second/css_1
+* views 함수 이름 : cssTestView()
+* 패턴 : css_test/
+* html : css_test.html
+* css 적용 연습... 태그내/내부/외부 방식...
+
+______________________________________
+
+* http://127.0.0.1:8000/front/javascript1/
+* views 함수 이름 : javascriptView1()
+* 패턴 : javascript1/
+* html : 01_javascript1.html
+* h3 > "자바스크립트 -1" 제목 달기
+
+_____________________________________
+함수기능을 추가해서 css1을 눌렀을 때 이동?

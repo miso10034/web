@@ -37,3 +37,15 @@ class Member(models.Model) :
         # --> 일반적으로 외부에 테이블을 생성한 후 개발이 진행됨
         managed = False
 
+### 주문정보(장바구니) chart 테이블 클래스 생성하기
+class Cart(models.Model) : 
+    cart_member = CharField(max_length=15, null=False)
+    cart_no = CharField(primary_key = True, max_length=13, null=False)
+    cart_prod = CharField(max_length=10, null=False)
+    cart_qty = IntegerField(max_length=8, null=False)
+
+    class Meta : 
+        db_table = "cart"
+        app_label="oracleapp"
+        managed = False
+    
