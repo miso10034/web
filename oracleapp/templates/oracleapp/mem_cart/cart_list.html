@@ -13,37 +13,28 @@
             //alert("gogo");
             //alert(cart_no);
             //alert(cart_prod);
-            url = "/oracle/cart_view/?";
+            url = "/oracle/mem_cart_view/?";
             url = url + "cart_no="+cart_no;
-            url = url + "&cart_prod="+cart_prod
+            url = url + "&cart_prod="+cart_prod;
             //alert(url);
             location.href = url;
         }
 
-        // 입력 화면으로 가기
-        function goCreate(){
-            // alert("입력화면 호출") 오라클의미 -> 오라클앱으로 가는 패턴중 하나
-            location.href = "/oracle/cart_insert_form/"; 
-            // 사람에 대한 정보가 신규 -> 받아서 넘길것은 없음
+        // 회원 상세 조회하기
+        function goMemView(mem_id){
+            location.href = "/oracle/memview/?mem_id="+mem_id;
         }
     </script>
 </head>
 <body>
     <h3>주문(장바구니)정보 전체 목록</h3>
     <hr/>
-
-    <!-- 등록하기 버튼 생성하기 -->
-    <button onclick="goCreate()">등록하기</button>
-
-    <!-- 행렬의 2차원 데이터를 표현할 수 있는 태그 : table태그
-        tr : 행을 의미
-        td or th : 열을 의미
-    -->
     <table border="1">
         <!-- 첫번째 tr영역에는 컬럼명이 들어갑니다. -->
         <tr>
             <th>주문번호</th>
             <th>회원아이디</th>
+            <th>회원이름</th>
             <!--<th>상품코드</th>
             <th>주문수량</th>-->
         </tr>
@@ -52,9 +43,9 @@
             <tr>                              <!-- pk값이 2개이므로 2를 선언 -->
                 <td><a href="javascript:goView('{{d.cart_no}}','{{d.cart_prod}}');">
                         {{ d.cart_no }}</a></td> <!-- 딕셔너리 안에서 cart_no 키를 줄테니 값을 다오-->
-                <td>{{ d.cart_member }}</td>
-                {% comment %} <td>{{ d.cart_prod }}</td>
-                <td>{{ d.cart_qty }}</td> {% endcomment %}
+                <td><a href="javascript:goMemView();">
+                        {{ d.cart_member.mem_id }}</a></td> 
+                <td>{{ d.cart_member.mem_name }}</td>
             </tr>
         {% endfor %}
     </table>

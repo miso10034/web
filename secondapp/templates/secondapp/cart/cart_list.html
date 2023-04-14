@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 주문(장바구니)정보 전체 조회하기 :::</title>
+    <script type="text/javascript">
+
+        function goView(cart_no, cart_prod){
+            url = "/second/cart_view/?";
+            url = url + "cart_no="+cart_no;
+            url = url + "&cart_prod="+cart_prod
+            location.href = url;
+        }
+        function goCreate(){
+            location.href = "/second/cart_insert_form/";
+        }
+    </script>
+</head>
+<body>
+    <h3>주문(장바구니)정보 전체 조회하기</h3>
+    <hr/>
+    <button onclick="goCreate()">등록하기</button>
+    <table border="1">
+        <tr>
+            <th>주문번호</th>
+            <th>회원아이디</th>
+        </tr>
+        {% for d in cart_list %}
+            <tr>
+                <td><a href="javascript:goView('{{d.cart_no}}','{{d.cart_prod}}');">
+                        {{d.cart_no}}</a></td>
+                <td>{{d.cart_member}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

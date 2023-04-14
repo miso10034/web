@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 주문(장바구니) 수정하기 폼 :::</title>
+    <script type="text/javascript">
+       function goBack(){]
+            history.go(-1);
+       }
+    </script>
+</head>
+<body>
+<form id="fm" name="fm" method="post" action="/oracle/cart_update/">
+    <input type="hidden" name="cart_no" value="{{cart_no}}">
+    <input type="hidden" name="cart_prod" value="{{cart_prod}}">
+    {% csrf_token %}
+
+    <h3>주문(장바구니) 수정하기 폼 가기</h3>
+    <hr/>
+    <p>* 주문번호 : {{cart_view.cart_no}}</p>
+    <p>* 회원아이디 : {{cart_view.cart_member}}</p>
+    <p>* 상품코드 : {{cart.view.cart_prod}}</p>
+    <p>* 주문수량 : <input type="text" name="cart_qty" size="5"
+                            value="{{cart_view.cart_qty}}" required></p>
+    <hr/>
+    <input type="button" onclick="goBack()" value="취소">
+    <input type="submit" value="저장">                        
+</form>   
+</body>
+</html>

@@ -33,4 +33,32 @@ urlpatterns = [
     path('cart_update/', views.getCartUpdate),
     ### http://127.0.0.1:8000/oracle/cart_delete/
     path('cart_delete/', views.getCartDelete),
+    ### http://127.0.0.1:8000/oracle/cart_insert_form/
+    path('cart_insert_form/', views.getCartInsertForm),
+    ### http://127.0.0.1:8000/oracle/cart_insert/
+    path('cart_insert/', views.getCartInsert),
+
+    ############### member와 cart join #################
+    ### http://127.0.0.1:8000/oracle/mem_cart_list/
+    path('mem_cart_list/', views.getMemCartList),
+
+    ### http://127.0.0.1:8000/oracle/mem_cart_view/
+    path('mem_cart_view/', views.getMemCartView),
+    ### http://127.0.0.1:8000/oracle/memview/
+    path('memview/', views.getMemView),
+
+    ############### 상품정보(Prod) ###############
+    ### http://127.0.0.1:8000/oracle/prod_list/
+    path('prod_list/', views.getProdList),
+    ### http://127.0.0.1:8000/oracle/prod_view/
+    path('prod_view/', views.getProdView),
+    ### http://127.0.0.1:8000/oracle/prod_update_form/
+    path('prod_update_form/', views.getProdUpdateForm),
+    ### http://127.0.0.1:8000/oracle/prod_update/
+    path('prod_update/', views.getProdUpdate),
+
+    ############# 회원 + 주문정보 + 상품정보 조회 ############
+    ### http://127.0.0.1:8000/oracle/cart_mem_prod_list/
+    path('cart_mem_prod_list/', views.getCartMemProdList),
 ]
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 주문(장바구니) 입력 폼 페이지 :::</title>
+    <script type="text/javascript">
+        // 취소하기 버튼 처리
+        function goBack(){
+            history.go(-1);
+        }
+    </script>
+</head>
+<body>
+    <h3>주문(장바구니) 입력 폼 페이지</h3>
+    <hr/>
+<form id="fm" name="fm" method="get" action="/oracle/cart_insert/">
+    {% csrf_token %}
+    <p>* 아이디 : <!-- name은 헷갈리지 않도록 보통 컬럼명으로 써줌-->
+            <input type="text" name="cart_member" 
+                    value="a001" required>
+    </p>
+    <p>* 상품코드 :
+            <input type="text" name="cart_prod" 
+                    value="P201000019" required> 
+    </p>
+    <p>* 주문수량 :
+            <input type="text" name="cart_qty" size="5" 
+                    value="13" required>
+    </p>
+    <p>* 주문번호 : 
+            <input type="text" name="cart_no" 
+                    value="2005050500002" required>
+    <!-- 주문번호의 끝을 +1 씩만 증가시켜주면 된다. -->
+    </p>
+    <hr/>
+    <!-- 저장버튼 -->
+    <input type="submit" value="저장하기">
+
+    <!-- 취소버튼(왼쪽) -->
+    <input type="button" value="취소하기" onclick="goBack()">
+</form>
+</body>
+</html>

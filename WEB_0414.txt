@@ -1,0 +1,68 @@
+이정원
+mentor1023@daum.net
+
+
+-----zoom URL
+주제: [대한상공회의소] 광주인력개발원-A반
+
+Zoom 회의 참가
+https://zoom.us/j/95019104695?pwd=OW9pU05jQ21ENTk4OEtRQlIvK2hHZz09
+
+단축 URL : https://zrr.kr/QBIp
+회의 ID: 950 1910 4695
+암호: 1234
+
+++++++++++++ oracleapp에서 ++++++++++++
+* models.py에서
+- prod 테이블 추가하기
+- class Prod
+
+<models.py 클래스 생성 후 아래 실행>
+* python manage.py makemigrations oracleapp
+* python manage.py migrate
+
+<runserver 후 오류 발생하는지 확인>
+
+
+___________ Prod 테이블 사용 ____________
+
+* 상품 전체 조회하기
+- views 함수명: getProdList()
+- templates/prod/prod_list.html
+  : 상품코드, 상품명 조회
+- url 패턴 : prod_list
+- oracleapp/index에 -> 위 url 추가
+_________________________________
+
+* 상품 상세 조회하기
+- views 함수명: getProdView()
+- templates/prod/prod_view.html
+  : 모두 조회
+- url 패턴 : prod_view
+_________________________________
+--> 상세보기 페이지에서
+---> [목록가기][수정하기] 버튼 생성 후 처리하기
+
+* 상품 목록가기 버튼처리
+
+* 상품 수정하기 폼 처리
+- views 함수명: getProdUpdateForm()
+- templates/prod/prod_update_form.html
+  : 수정항목 상품명, 매입가, 소비자가, 판매가
+- url 패턴 : prod_update_form
+- [저장하기] 버튼 생성까지 만들기
+_________________________________
+
+* 상세 수정(저장) 처리하기
+- views 함수명: getProdUpdate()
+- html 파일 생성 없음
+- url 패턴 : prod_update
+_________________________________
+
+============ cart+member+prod ============
+* 회원 + 주문정보 + 상품정보 조회하기 
+- views 함수명 : getCartMemProdList()
+- templates/cart_mem_prod/cart_mem_prod_list.html
+: 회원이름, 상품명, 주문번호, 주문수량
+- url 패턴 : cart_mem_prod_list
+- oracle index페이지에 위 url 추가
