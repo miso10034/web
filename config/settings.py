@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'mainapp',
     'frontapp',
     'oracleapp',
+    'nonmodelapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

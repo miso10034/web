@@ -1,0 +1,33 @@
+===== nonmoelapp =====
+* nonmoelapp 생성하기
+* views.py : index() 함수 생성
+* templates : index.html 파일 생성
+ - 내용은 제목만 <h3>NonModel </h3>
+* url패턴 : "" 또는 "index/" 모두 허용되도록
+
+_________________________________________
+회원 전체 조회
+* model_db/member/member.py에
+  getMemberList() 함수 생성 : sql 구문 완성
+* views.py : getMemberList()함수 생성
+* templates/member/:mem_list.html 파일 생성
+* url패턴 : mem_list
+
+_________________________________________
+* model_db / cart / cart.py 파일 생성
+--> sql 구문만 작성하시면 됩니다.
+--> 함수이름
+  ** 입력 : setCartInsert()
+  ** 삭제 : setCartDelete()
+* views.py에서 기존(oracleapp)의 주문정보 함수
+  복사해서 사용
+* templates/cart/ 기존(oracleapp)의 html 복사 사용
+* urls.py 패턴 정의(기존과 동일한 패턴 이름 사용)
+
+
+
+
+
+
+
+

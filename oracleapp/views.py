@@ -47,15 +47,22 @@ def getMemberView(request):
 
 ### 회원 정보 수정 폼 페이지
 def getMemUpdateForm(request):
-    # 1. 전송 데이터가 있으면 받기(get or post) GET!
-    # 2. DB 입력/ 수정/ 삭제/ 조회 시 models.py 처리
-    # 3. DB 결과가 있으면 html에 넘겨 주기
-    mem_id = request.GET.get("mem_id", "ERROR")
-    
-    # {"mem_id": "아이디", "mem_pass":"패스워드",
-    # "mem_name": "이름", "mem_add1":"주소1" }
-    mem_view = Member.objects.get(mem_id = mem_id)
-
+    try:
+        # 1. 전송 데이터가 있으면 받기(get or post) GET!
+        # 2. DB 입력/ 수정/ 삭제/ 조회 시 models.py 처리
+        # 3. DB 결과가 있으면 html에 넘겨 주기
+        mem_id = request.GET.get("mem_id", "ERROR")
+        
+        # {"mem_id": "아이디", "mem_pass":"패스워드",
+        # "mem_name": "이름", "mem_add1":"주소1" }
+        mem_view = Member.objects.get(mem_id = mem_id)
+    except:
+        msg ="""
+            <script type="text/javascript">
+                alert("잘못접근")
+                location.href="/oracle/mem_list/';
+            </sciprt>
+        """
     return render(request,
                   "oracleapp/member/mem_update_form.html",
                   {"mem_id":mem_id,
