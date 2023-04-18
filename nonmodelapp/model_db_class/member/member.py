@@ -1,4 +1,4 @@
-from nonmodelapp.model_db import db_sql
+from nonmodelapp.model_db_class import db_sql
 
 ### 회원 전체 조회하기
 def getMemberList():
@@ -36,5 +36,17 @@ def setMemberUpdate(mem_pass, mem_add1, mem_id):
         Where mem_id = '{}'
     """.format(mem_pass, mem_add1, mem_id)
 
-    return db_sql.setUpdate(sql)
+    return db_sql.setCUD(sql)
 
+### 회원 로그인 인증처리(아이디, 패스워드)
+def getLoginChk(mem_id, mem_pass):
+    
+    ### 구문 작성
+    sql = """
+        select mem_id, mem_pass, mem_name, mem_add1
+        From member
+        Where mem_id = '{}' 
+           And mem_pass = '{}'
+    """.format(mem_id, mem_pass)
+
+    return db_sql.getView(sql)
