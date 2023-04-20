@@ -24,6 +24,12 @@ def setCartUpdate(cart_prod, cart_qty, cart):
     """.format(cart_prod, cart_qty, cart)
     return db_sql.setCUD(sql)
 
+def setCartDelete(cart_no):
+    sql="""
+        delete from cart where cart_no='{}'
+        """.format(cart_no)
+    return db_sql.getView(sql)
+
 def getLoginChk(cart_id, cart_pass):
     sql="""
         select cart_member, cart_no, cart_prod, cart_qty

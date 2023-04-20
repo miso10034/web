@@ -9,24 +9,23 @@
         // 목록가기
         function goList(){
             //alert("목록");
-            location.href = "/nonmodel/cart_list/";
+            location.href = "/third/cart_list/";
         }
         // 수정폼으로 가기
         function goUpdateForm(cart_no, cart_prod){
             // 3 // alert(cart_no + " / " + cart_prod);
             // 수정하기를 눌렀을 때 pk를 계속 넘겨줘야 값이 없어지지 않는다.
-            url = "/nonmodel/cart_update_form/?";//4 // get방식이어서 ?들어감
+            url = "/third/cart_update_form/?";//4 // get방식이어서 ?들어감
             url = url + "cart_no=" + cart_no;//5
             url = url + "&cart_prod=" + cart_prod
-            //alert(url);
-            //1 // location.href = "/oracle/cart_update_form/?";
+        
             location.href = url; //6
         }
         // 삭제하기
         function goDelete(cart_no, cart_prod){
             // alert(cart_no + " / " + cart_prod);
             // 삭제하기 버튼을 눌렀을 때 아래를 만들어줘야 처리가 넘어가짐
-            url = "/nonmodel/cart_delete/?";
+            url = "/third/cart_delete/?";
             url = url + "cart_no=" + cart_no;//5
             url = url + "&cart_prod=" + cart_prod
             //alert(url);

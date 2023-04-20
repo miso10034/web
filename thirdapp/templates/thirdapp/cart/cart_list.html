@@ -13,7 +13,7 @@
             //alert("gogo");
             //alert(cart_no);
             //alert(cart_prod);
-            url = "/nonmodel/cart_view/?";
+            url = "/third/cart_view/?";
             url = url + "cart_no="+cart_no;
             url = url + "&cart_prod="+cart_prod
             //alert(url);
@@ -23,7 +23,7 @@
         // 입력 화면으로 가기
         function goCreate(){
             // alert("입력화면 호출") 오라클의미 -> 오라클앱으로 가는 패턴중 하나
-            location.href = "/nonmodel/cart_insert_form/"; 
+            location.href = "/third/cart_insert_form/"; 
             // 사람에 대한 정보가 신규 -> 받아서 넘길것은 없음
         }
     </script>
@@ -43,7 +43,7 @@
         <!-- 첫번째 tr영역에는 컬럼명이 들어갑니다. -->
         <tr>
             <th>주문번호</th>
-            <th>회원아이디</th>
+            <th>상품코드</th>
             <!--<th>상품코드</th>
             <th>주문수량</th>-->
         </tr>

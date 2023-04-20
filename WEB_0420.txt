@@ -1,0 +1,47 @@
+_________________________ nonmodelapp에서 ________________________
+
+### 상품 검색에 따른 상품상세조회하기
+# model_db_class / lprod/lprod.py (상품분류정보만 처리)
+# model_db_class / join / join.py (조인되는 모든 것 처리)
+
+__________________________________________________________________
+
+-- 상품분류명 : selectbox에 들어갈 내용 조회
+-- table : lprod 
+# model_db_class / lprod/lprod.py (상품분류정보만 처리)
+__________________________________________________________________
+
+-- 상품명 :  선택된 상품분류에 대한
+--               selectbox에 들어갈 내용 조회
+-- (선택된 상품분류명에 대한 상품명이 나와야해서 2개의 테이블이 필요)
+-- table : lprod, prod
+# model_db_class / join / join.py (조인되는 모든 것 처리)
+__________________________________________________________________
+
+-- 선택된 상품분류 및 상품에 대한 상품 상세정보 조회
+-- 조회 Table : lprod, prod, buyer
+# model_db_class / join / join.py (조인되는 모든 것 처리)
+___________________________________________________________________
+
+thirdapp에 search_prod 적용해보기..?
+___________________________________________________________________
+
+* 메일 발송 처리하기
+1. 구글 SMTP를 통해서 발송
+ - 본인 구글 계정을 통해서 발송됨
+ - Web Server에서 > 구글메일서버 > 발송
+
+2. http://myaccount.google.com/security
+ - 2단계 인증 > 패스워드 입력 > 폰인증
+ - [앱 비밀번호] > 비번 파일 저장
+cckmndvfnnthancy
+
+3. settings.py에 설정
+##### Google Email SMTP 설정하기 ######
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '본인 이메일 계정'
+EMAIL_HOST_PASSWORD = '앱 비밀번호'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

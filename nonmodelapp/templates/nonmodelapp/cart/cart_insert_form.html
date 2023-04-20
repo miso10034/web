@@ -44,9 +44,7 @@
             url = url + "&cart_prod=" + cart_prod;
             url = url + "&cart_qty=" + cart_qty;
             url = url + "&cart_no=" + cart_no;
-
-            // alert(url);
-            // 전송시키기
+            
             location.href = url; 
             
         }
@@ -55,7 +53,7 @@
 <body>
     <h3>주문(장바구니) 입력 폼 페이지</h3>
     <hr/>
-<!--<form id="fm" name="fm" method="get" action="/oracle/cart_insert/">--> 
+<!--<form id="fm" name="fm" method="get" action="/nonmodel/cart_insert/">--> 
 <form id="fm" name="fm" method="post" action="#">
     {% csrf_token %}
     <p>* 아이디 : <!-- name은 헷갈리지 않도록 보통 컬럼명으로 써줌-->
