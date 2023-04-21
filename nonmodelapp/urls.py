@@ -50,4 +50,16 @@ urlpatterns = [
     path('email_form/', views.getEmailForm),
     ### http://127.0.0.1:8000/nonmodel/email_send/
     path('email_send/', views.emailSend),
+
+    ############# 페이징 처리 ###############
+    ### http://127.0.0.1:8000/nonmodel/cart_list_page/
+    path('cart_list_page/', views.getCartListPaging),
+
+    ############# File Up/Download 처리 ###############
+    ### http://127.0.0.1:8000/nonmodel/file_insert_form/
+    path('file_insert_form/', views.getFileInsertForm),
+    ### http://127.0.0.1:8000/nonmodel/file_insert/
+    path('file_insert/', views.setFileInsert),
+    ### http://127.0.0.1:8000/nonmodel/file_down/
+    path('file_down/', views.setFileDown),
 ]

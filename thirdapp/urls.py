@@ -27,4 +27,15 @@ urlpatterns = [
     ########### 상세 ############
     ### http://127.0.0.1:8000/third/search_prod/
     path('search_prod/', views.getSearchProd),
+    ### http://127.0.0.1:8000/third/mem_list_page/
+    path('mem_list_page/', views.getMemberListPaging),
+
+    ############# File Up/Download 처리 ###############
+    ### http://127.0.0.1:8000/third/file_insert_form/
+    path('file_insert_form/', views.getFileInsertForm),
+    ### http://127.0.0.1:8000/third/file_insert/
+    path('file_insert/', views.setFileInsert),
+    ### http://127.0.0.1:8000/third/file_down/
+    path('file_down/', views.setFileDown),
+
 ]

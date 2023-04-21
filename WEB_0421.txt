@@ -1,0 +1,45 @@
+____________________________ nonmodelapp에서 _________________________
+
+#### 페이징 처리하기
+- views.py 함수명 : getCartListPaging
+- HTML : paging / cart_list.html
+- 패턴 : cart_list_page
+- nonmodelapp index.html에 해당 링크 추가
+
+______________ thirdapp에서 _________________
+
+### mem_list에 페이지처리 추가하기
+
+______________ File Up/Download _________________
+
+## 구글드라이브 > 14day > file_util.py 다운
+
+### file_insert_form.html에서
+- submit 버튼 생성("저장") 이라는 이름
+- post 방식으로
+- views 함수명 : setFileInsert()
+  >> HttpResponse("go go") 출력
+- url 패턴 : file_insert
+
+### 파일 다운로드 처리하기
+# views 함수명 : setFileDown()
+#      >> HttpResponse("gogo")출력
+# 패턴 : file_down
+
+__________ thirdapp에서 ______________
+### 파일 테스트
+- Table 생성 : file_tb
+- 컬럼 :no, title, img_full_name, download_full_name
+      : no는 pk
+
+-- no값 자동증가 값 생성하기
+Insert Into file_tb
+  (no, title, img_full_name, download_full_name)
+values
+  ((Select NVL(max(no)+1, 1) as no
+    From file_tb), '제목','이미지1', '이미지2')
+
+
+- file_insert_form.html에서 [저장] 버튼 클릭 시
+ -- views.py : setFileInsert()함수에서
+               파일 업로드 후 Table에 데이터 저장
