@@ -62,4 +62,32 @@ urlpatterns = [
     path('file_insert/', views.setFileInsert),
     ### http://127.0.0.1:8000/nonmodel/file_down/
     path('file_down/', views.setFileDown),
+
+    ############# 페이지 코드 포함(include) 처리 ###############
+    ### http://127.0.0.1:8000/nonmodel/include_view/
+    path('include_view/', views.include_view),
+    ### http://127.0.0.1:8000/nonmodel/include_view2/
+    path('include_view2/', views.include_view2),
+
+    ############# 페이지 실행 결과 포함(extends) 처리 ###############
+    ### http://127.0.0.1:8000/nonmodel/extends_view/
+    path('extends_view/', views.extends_view),
+    ### http://127.0.0.1:8000/nonmodel/block_view1/
+    path('block_view1/', views.block_view1),
+    ### http://127.0.0.1:8000/nonmodel/block_view2/
+    path('block_view2/', views.block_view2),
+    ### http://127.0.0.1:8000/nonmodel/block_view3/
+    path('block_view3/', views.block_view3),
+    ### http://127.0.0.1:8000/nonmodel/block_mem_list/
+    path('block_mem_list/', views.block_mem_list),
+   
+    ############# 비동기방식(jquery) 처리 ###############
+    ### http://127.0.0.1:8000/nonmodel/load_view/
+    path('load_view/', views.load_view),
+    ### http://127.0.0.1:8000/nonmodel/load_view1/
+    path('load_view1/', views.load_view1),
+    ### http://127.0.0.1:8000/nonmodel/load_view2/
+    path('load_view2/', views.load_view2),
+    ### http://127.0.0.1:8000/nonmodel/load_view3/
+    path('load_view3/', views.load_view3),
 ]

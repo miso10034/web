@@ -219,6 +219,9 @@ def setFileInsert(request):
         ### 파일 업로드 실제 수행하기
         fu.fileUpload()
 
+        ### Table에 데이터 저장
+        # fu.goDataSave(no, title, img_full_name, download_full_name)
+
         ################ [업로드된 파일 정보 조회] ##################
         ### 파일 사이즈
         file_size = fu.file_size
@@ -259,3 +262,17 @@ def setFileDown(request):
     ### 브라우저에서 파일 다운로드 시키기
     return fu.fileDownload()
     # return HttpResponse(download_full_name)
+
+
+### include 연습 ####
+def include_view(request):
+    return render(request,
+                  "thirdapp/include/include_view.html",
+                  {})
+
+### extends 연습 ####
+def extends_view(request):
+    cart_list = cart.getCartList()
+    return render(request,
+                  "thirdapp/extends/extends_view.html",
+                  {"cart_list" : cart_list})

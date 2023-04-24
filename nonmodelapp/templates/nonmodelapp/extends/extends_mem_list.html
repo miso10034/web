@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 페이징 처리하기 extends :::</title>
+</head>
+<body>
+    <h3>페이징 처리하기 (extends)</h3>
+    <hr/>
+    <!-- 메뉴 화면 -->
+    <!-- 상단 : 네비게이션 메뉴(카테고리 메뉴) -->
+    {% include 'nonmodelapp/include/02_nav.html' %}
+
+    <!-- 본문 화면 -->
+    {% block mem_list %}
+    {% endblock %}
+
+    <!-- 하단 화면 -->
+    {% include 'nonmodelapp/include/04_footer.html' %}
+
+
+</body>
+</html>

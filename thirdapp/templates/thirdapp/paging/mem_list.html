@@ -60,27 +60,40 @@
                 <ul class="pagination"
                     style="justify-content: center;">
 
-                        <!-- 이전 페이지 처리 영역 -->
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-
-                        <!-- 페이지 번호 처리 영역 (1~10까지 보여주기) -->
-                            <li class="page-item">
-                                <a class="page-link" href="#">1
-                                </a>
-                            </li>
-                        <!-- 다음 페이지 처리 영역 -->
-                            <li class="page-item">
-                                <a class="page-link" href="#">2
-                                </a>
-                            </li>
+                    <!-- 이전 페이지 처리 영역 -->
+                    {% if is_prev %}
                         <li class="page-item">
-                            <a class="page-link" href="#">3
+                            <a class="page-link"
+                            href="/third/mem_list_page/?page={{start_page | add:"-10"}}" 
+                            aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
+                    {% endif %}
+                    <!-- 페이지 번호 처리 영역 (1~10까지 보여주기) -->
+                    {% for i in page_range %}
+                        <li class="page-item">
+                            {% if i == now_page %}
+                                <strong>
+                                    <a class="page-link" href="#"
+                                        style="color:black;">{{ i }}</a>
+                                </strong>
+                            {% else %}
+                                <a class="page-link"
+                                href="/third/mem_list_page/?page={{i}}">{{i}}</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                    <!-- 다음 페이지 처리 영역 -->
+                    {% if is_next %}
+                        <li class="page-item">
+                            <a class="page-link" 
+                            href="/third/mem_list_page/?page={{ start_page | add:"10"}}"
+                            aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -88,7 +101,7 @@
 </div>     
 <!-- Bootstrap bootstrap.bundle.min.js 적용하기 -->
 <script type="text/javascript"
-        src="{% static 'nonmodelapp/bootstrap/js/bootstrap.bundle.min.js' %}">
+        src="{% static 'thirdapp/bootstrap/js/bootstrap.bundle.min.js' %}">
 </script>
 </body>
 </html>

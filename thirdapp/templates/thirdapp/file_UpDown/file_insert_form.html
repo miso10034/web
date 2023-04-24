@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>::: 파일 입력 폼:::</title>
     <script type="text/javascript">
-        function setFileInsert(){
-            
+        function goDataSave(no, title, img_full_name, download_full_name){
+            location.href = "/third/file_insert_form/";
         }
-    </script>
 </head>
 <body>
 <!-- file 전송시 form태그 내에 enctype 속성 설정해야함 -->
@@ -28,7 +27,7 @@
         * 첨부파일 :
         <input type="file" name="file_nm">
     </p>
-    <input type="submit" value="저장" onclick="setFileInsert()">
+    <input type="submit" value="저장" onclick="setFileInsert()" >
 </form>
 </body>
 </html>

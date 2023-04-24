@@ -1,0 +1,57 @@
+_________ 페이지 분할을 통한 유지관리 _________
+### 공통으로 사용되는 페이지의 "코드"를 포함하여 사용
+ - include 사용 (순수 HTML 코드만 사용됨)
+ - 상단 로고, 네비게이션 메뉴(카테고리) 메뉴, 하단 주소영역
+ - 본문내용
+ - Data 처리가 있는 html은 처리가 안됨
+ 
+### 공통으로 사용되는 페이지 중 "실행 결과"만을 포함하여 사용
+ - extends
+ - 본문 내용(페이지의 하얀부분, main, body영역)
+ - 
+_______________ nonmodelapp 에서 _______________
+
+** views.py -> templates/nonmodelapp안에 폴더 생성, 파일 생성 -> urls.py -> index.html에 링크 만들기
+
+### 페이징 처리하기(include)
+ - views.py 함수명 : include_view()
+ - HTML : include/include_view.html
+ - 패턴 : include_view
+ - nonmodelapp index.html에 해당 링크 추가
+
+views.py에 render에 썼던 것 처럼 ''안에 모두 다써주기
+ 1.include_view.html에서 {% include 'mainapp/index.html' %}
+
+include 파일안에 div.html 4번 복사
+
+______________ thirdapp 에서 ______________
+
+### include 연습
+
+### 페이징 처리하기 (extends)
+ - views.py 함수명 : extends_view()
+ - HTML : extends/extends_view.html
+ - 패턴 : extends_view
+ - nonmodelapp index.html에 해당 링크 추가
+
+ ## extends
+1. 01_block_view1.html에 필요한 부분만 {% block %}
+
+###### 비동기방식 호출 (jquery)
+ - views.py 함수명 : load_view()
+ - HTML : jquery_load/load_view.html
+ - 패턴 : load_view
+ - nonmodelapp index.html에 해당 링크 추가
+
+ 1. load_view.html에 {% load static %}, <script>에 자바스크립트 라이브러리 정의하기
+
+
+_________________ [ WEB 산출물 ] ______________
+
+1. 요구사항 정의서
+2. 메뉴구조도
+4. ERD (기본 테이블 형태 연결 정도만)
+
+** 제출 : 5시 40분까지
+** 제출 파일명 : 위 3개 문서를 "본인이름.zip"으로 제출
+** 제출 위치 : 구글드라이브 > 15day > WEB산출물_실습_제출 >
