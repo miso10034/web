@@ -90,4 +90,16 @@ urlpatterns = [
     path('load_view2/', views.load_view2),
     ### http://127.0.0.1:8000/nonmodel/load_view3/
     path('load_view3/', views.load_view3),
+
+    ############# 지도 시각화 ###############
+    ### http://127.0.0.1:8000/nonmodel/map_view/
+    path('map_view/', views.map_Visualization),
+
+    ############# 데이터 시각화 ###############
+    ### http://127.0.0.1:8000/nonmodel/data_view/
+    path('data_view/', views.data_Visualization),
+
+    ############# [머신러닝 모델 연동 ] ###############
+    ### http://127.0.0.1:8000/nonmodel/ml_view/
+    path('ml_view/', views.getML_View),
 ]

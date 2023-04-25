@@ -16,6 +16,15 @@ from django.core.paginator import Paginator
 ### File Up/Download 처리를 위한 라이브러리
 from nonmodelapp.file_util.file_util import File_Util
 
+### 지도맵 시각화 사용자 라이브러리
+from nonmodelapp.map_view.map_view import Map_View
+
+### 데이터 시각화 사용자 라이브러리
+from nonmodelapp.data_view.data_view import Data_View
+
+### 머신러닝 모델 연동 사용자 라이브러리
+from nonmodelapp.ml_view.ml_view import ML_View
+
 ### 최초 nonmodel root 페이지
 def index(request):
     return render(request,
@@ -641,3 +650,51 @@ def load_view3(request):
     return render(request,
                   "nonmodelapp/jquery_load/load_view3.html",
                   {})
+
+########################
+##### 지도맵 시각화 #####
+########################
+# - 지도맵 사용자 라이브러리 불러들이기
+def map_Visualization(request):
+    ### 클래스 생성시키기
+    map_view = Map_View()
+    ### 지도맵 실행결과 받아오기
+    map_html = map_view.getMap()
+    ### 스타벅스 데이터프레임 받아오기
+    map_data = map_view.getDataFrame()
+
+    return render(request,
+                  "nonmodelapp/map_view/map_view.html",
+                  {"map_html" : map_html,
+                   ### to_html() : <table>태그로 변환해줌
+                   "map_data" : map_data.to_html()})
+
+########################
+##### 데이터 시각화 #####
+########################
+# - 데이터 사용자 라이브러리 불러들이기
+def data_Visualization(request) : 
+    data_View = Data_View()
+
+    return render(request,
+                  "nonmodelapp/data_view/data_view.html",
+                  {})
+
+#################################
+##### 머신러닝 모델 연동 처리 #####
+#################################
+# - 머신러닝 모델 연동 사용자 라이브러리 불러들이기
+def getML_View(request) : 
+    random_input = [[2.00000e+02, 2.30000e+01,
+                        2.58000e+01, 1.03458e+01,3.66360e+00]]
+
+    ml_view = ML_View()
+
+    score = ml_view.getModelScore()
+    pred_data  = ml_view.getModelPredict(random_input)
+
+    return render(request,
+                  "nonmodelapp/ml_view/ml_view.html",
+                  {"score" : score,
+                   "pred_data" : pred_data,
+                   "random_input": random_input})
